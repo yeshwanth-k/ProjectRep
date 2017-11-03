@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+      <title>JetBlue Airlines</title>
+        <link rel="icon" href="jetblue.jpg" type="image/jpg" sizes="16x16">
+        <style>
+            body {
+        background: url("jetblue1.jpg");
+        background-size: 1660px 1090px;
+        background-repeat: no-repeat;
+        
+            }
+            h1 {
+                background-color: midnightblue;
+                color: white;
+                text-align: center;
+            }
+            h2 {
+                color: midnightblue;
+            }
+            .fieldset-width {
+                width: 300px;
+                border-color:black;
+                border-style: solid;
+            }
+            .fieldset-width-details {
+                width: 500px;
+                border-color:black;
+                border-style: solid;
+            }
+            .fieldset-width-details1 {
+                width: 500px;
+                border-color:black;
+                border-style: solid;
+            }
+        </style>
+        
+    </head>
+    <body onload=enable_text(false)>
+       <h1>JetBlue Airlines</h1>
+        <form name=f1 method="POST" action= "FlightBookingServlet" >
+            <fieldset class="fieldset-width">
+                <legend><b>Customer Details</b></legend>
+                <b>First name</b><br>  <input type="text" STYLE="background-color:#F5F5F5" name="firstname"><br>
+                <b>Last name</b><br>   <input type="text" STYLE="background-color:#F5F5F5" name="lastname"><br>
+                <b>Email ID</b><br>    <input type="email" STYLE="background-color:#F5F5F5" name="emailid"><br>
+                <b>Phone Number</b><br><input type="text" STYLE="background-color:#F5F5F5" name="phonenumber"><br>
+            </fieldset>
+        
+            <fieldset class="fieldset-width">
+                <legend><b>Address Information</b></legend>
+                <b>Address Line1</b><br>  <input type="text" STYLE="background-color:#F5F5F5" name="addressline1"><br>
+                <b>Address Line2</b><br>  <input type="text" STYLE="background-color:#F5F5F5" name="addressline2"><br>
+                <b>City</b><br>           <input type="text" STYLE="background-color:#F5F5F5" name="city"><br>
+                <b>State</b><br> <select name="state">
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DE">Delaware</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option>
+                    <option value="DC">Washington DC</option>
+                </select><br>
+                <b>ZIP Code</b><br>  <input type="text" STYLE="background-color:#F5F5F5" name="zip"><br>
+            </fieldset>
+        
+            <fieldset class="fieldset-width">
+                <legend><b>Login Details</b></legend>
+                <b>User ID</b><br>  <input type="text" STYLE="background-color:#F5F5F5" name="userid"><br>
+                <b>Password</b><br>   <input type="text" STYLE="background-color:#F5F5F5" name="password"><br>
+            </fieldset>
+       
+            <fieldset class="fieldset-width-details1">
+                <legend><b>Payment Details</b></legend>
+                <b>Name on card</b><br>  <input type="text" STYLE="background-color:#F5F5F5" name="nameoncard"><br>
+                <b>CC Number</b><br>   <input type="text" STYLE="background-color:#F5F5F5" name="ccno"><br>
+                <b>CVV</b><br>    <input type="text" STYLE="background-color:#F5F5F5" name="cvv"><br>
+                <label>Month OF Expiry(MM):</label>
+                <select name="month">
+                  <option value="01">01</option>
+                  <option value="02">02</option>
+                  <option value="03">03</option>
+                  <option value="04">04</option>
+                  <option value="05">05</option>
+                  <option value="06">06</option>
+                  <option value="07">07</option>
+                  <option value="08">08</option>
+                  <option value="09">09</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                </select>
+                <label>    Year Of Expiry(YYYY):</label>
+                <select name="year">
+                <option value="Select Year">Select Year</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+                <option value="2027">2027</option>
+                <option value="2028">2028</option>
+                </select><br><br>
+                <input type="checkbox" name= "save" value= "save"><b>Save card details</b><br>
+            </fieldset>
+        
+        
+            <fieldset class="fieldset-width-details">   
+                <legend><b>Flight Details</b></legend>
+                <script>
+                    function enable_text(status)
+                        {
+                            status=!status;  
+                            document.f1.other_text.disabled = status;
+                        }
+                </script>
+                <input type="checkbox" name="roundtrip" onclick="enable_text(this.checked)"><b>Round Trip</b><br>
+                <b>From</b>  <input type="text" STYLE="background-color:#F5F5F5" name="source"> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                <b>To</b>   <input type="text" STYLE="background-color:#F5F5F5;width: 191px" name="destination"><br>
+                <b>Depart Date</b>     <input type="date" STYLE="background-color:#F5F5F5; width: 122px" name="departdate">&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp
+                <b>Return Date</b>   <input type="date" STYLE="background-color:#F5F5F5; width: 122px" name=other_text><br>
+                <b>Fare</b> <input type="text" STYLE="background-color:#F5F5F5;width: 175px" name="fare">
+                <br>
+            </fieldset>
+        <br>
+        <input type="submit" STYLE="background-color:	#191970; color:#FFFFFF " value="ProcessPayment" name="process">     
+         <br> <br>
+    </form>
+    </body>
+</html>
+    

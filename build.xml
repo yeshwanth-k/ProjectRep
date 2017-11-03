@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="deploy" name="FlightBooking">
+    <property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.8"/>
+    <property name="source" value="1.8"/>
+    <property name="name" value="FlightBooking" />
+    
+    <path id="FlightBooking.classpath">
+        <pathelement location="build/classes"/>
+    	<pathelement location="WebContent/WEB-INF/lib/mysql-connector-java-5.0.8-bin.jar"/>
+    	<pathelement location="WebContent/WEB-INF/lib/servlet-api.jar"/>
+    </path>
+              	
+    <target name="init">
+        <mkdir dir="build/classes"/>
+        <copy includeemptydirs="false" todir="build/classes">
+            <fileset dir="src">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+              	
+    <target name="clean">
+        <delete dir="build/classes"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+              	
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="build/classes" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="FlightBooking.classpath"/>
+        </javac>
+    </target>
+              	
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+              	
+    <target name="deploy" description="Bundles the application as a WAR file" depends="clean, build">
+         <mkdir dir="WebContent/WEB-INF/classes"/>
+              	     
+         <copy includeemptydirs="false" todir="WebContent/WEB-INF/classes">
+             <fileset dir="build/classes">
+             <include name="**/*.class"/>
+             </fileset>
+         </copy>
+              	     
+         <war destfile="FlightBooking.war"
+              	        basedir="WebContent"
+              	        needxmlfile="false">
+         </war>
+    	
+    	<copy todir="C:\bootcampMay17\tools\apache-tomcat-8.5.16\webapps" preservelastmodified="true">
+    	         <fileset dir=".">
+    	            <include name="*.war"/>
+    	         </fileset>
+    	      </copy>
+    	<antcall target="start-tomcat"></antcall>
+     </target>
+      
+              	<path id="catalina-ant-classpath">
+              	<!-- We need the Catalina jars for Tomcat -->
+              	<!--  * for other app servers - check the docs -->
+              	   <fileset dir="C:\bootcampMay17\tools\apache-tomcat-8.5.16\lib">
+              	      <include name="catalina-ant.jar"/>
+              	   </fileset>
+              	</path>
+
+              	<taskdef name="reload" classname="org.apache.catalina.ant.ReloadTask">
+              	   <classpath refid="catalina-ant-classpath"/>
+              	</taskdef>
+              	<taskdef name="list" classname="org.apache.catalina.ant.ListTask">
+              	   <classpath refid="catalina-ant-classpath"/>
+              	</taskdef>
+              	<taskdef name="start" classname="org.apache.catalina.ant.StartTask">
+              	   <classpath refid="catalina-ant-classpath"/>
+              	</taskdef>
+              	<taskdef name="stop" classname="org.apache.catalina.ant.StopTask">
+              	   <classpath refid="catalina-ant-classpath"/>
+              	</taskdef>
+
+              	<target name="reload" description="Reload application in Tomcat">
+              	   <reload url="http://localhost:8080/manager/html" username="admin"
+              	      password="admin" path="/${name}"/>
+              		
+              	
+              	</target>
+              	
+              	<target name = "start-tomcat">
+              		<exec executable = "C:\bootcampMay17\tools\apache-tomcat-8.5.16\bin\startup.bat"/>
+              		<exec executable = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe">
+              		<arg line= "http://localhost:8080/FlightBooking"/>
+              		</exec>
+              	</target>
+              	<target name = "stop-tomcat">
+              	              		<exec executable = "C:\bootcampMay17\tools\apache-tomcat-8.5.16\bin\shutdown.bat"/>
+              	              
+              	 </target>
+              	
+              	<target name = "start">
+              		<start url="http://localhost:8080/manager/html" username="admin"
+              					password="admin" path="/${name}" />
+
+              	             
+              	</target>
+              	
+     
+     
+              	
+</project>

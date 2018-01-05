@@ -4,6 +4,7 @@ package com.crmindz.bcjmay2017.flightbooking.entity;
  * @author Yeshwanth Konakanchi
  * Address entity class with address details
  */
+//gitTest3
 public class Address {
 	private String addressLine1;
 	private String addressLine2;

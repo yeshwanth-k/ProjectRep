@@ -15,7 +15,6 @@ public class FlightBookingService {
 	}
 	
 	//gitTest
-	//gitTest2
 	
 	public static boolean validateCardDetails(CardDetails cardDetails, BookingDetails booking){
 		

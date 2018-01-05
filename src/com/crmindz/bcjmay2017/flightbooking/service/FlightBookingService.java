@@ -14,7 +14,6 @@ public class FlightBookingService {
 		return Long.toString(n);
 	}
 	
-	//gitTest
 	
 	public static boolean validateCardDetails(CardDetails cardDetails, BookingDetails booking){
 		
